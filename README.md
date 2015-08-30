@@ -6,7 +6,7 @@ This library consist in **one single view**, and uses the Design Support Library
 
 # Demo
 
-Check out the sample proyect included.
+Check out the sample project included.
 
 ![sample](https://raw.githubusercontent.com/Sloy/CollapsingAvatarToolbar/master/art/collapsingavatar.gif)
 
@@ -105,7 +105,7 @@ It must be placed inside a CollapsingToolbarLayout with a sibling Toolbar, like 
 
 Improvements are most than welcome. Feel free to send a Pull Request or open an Issue.
 
-I am pretty bad at explaining myself. Check out the sample project for implementation details or ask me anything you need to know.
+I am pretty bad at explaining myself. Check out the sample project for implementation details or ask me anything you want to know.
 
 # External libraries
 - [Support v7 AppCompat Library](https://developer.android.com/tools/support-library/features.html)
