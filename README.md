@@ -13,7 +13,7 @@ Check out the sample project included.
 # Gradle
 ```
 dependencies {
-    compile 'com.sloydev:collapsingavatartoolbar:1.0.0'
+    compile 'com.sloydev:collapsingavatartoolbar:1.0.1'
     // Requires you to provide these dependencies yourself
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'com.android.support:design:23.0.0'
