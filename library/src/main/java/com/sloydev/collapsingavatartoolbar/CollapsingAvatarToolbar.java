@@ -154,8 +154,8 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
             calculateValues();
             valuesCalculatedAlready = true;
         }
-        float collapsedPercentage = -offset / maxOffset;
-        updateViews(collapsedPercentage, offset);
+        float collapsedProgress = -offset / maxOffset;
+        updateViews(collapsedProgress, offset);
     }
 
     private void calculateValues() {
@@ -164,14 +164,14 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
         maxOffset = expandedHeight;
     }
 
-    private void updateViews(float collapsedPercentage, int currentOffset) {
-        float expandedPercentage = 1 - collapsedPercentage;
-        float translation = -currentOffset + ((float) toolbar.getHeight() * expandedPercentage);
+    private void updateViews(float collapsedProgress, int currentOffset) {
+        float expandedProgress = 1 - collapsedProgress;
+        float translation = -currentOffset + ((float) toolbar.getHeight() * expandedProgress);
 
-        float currHeight = collapsedHeight + (expandedHeight - collapsedHeight) * expandedPercentage;
-        float currentPadding = expandedPadding + (collapsedPadding - expandedPadding) * collapsedPercentage;
-        float currentImageSize = collapsedImageSize + (expandedImageSize - collapsedImageSize) * expandedPercentage;
-        float currentTextSize = collapsedTextSize + (expandedTextSize - collapsedTextSize) * expandedPercentage;
+        float currHeight = collapsedHeight + (expandedHeight - collapsedHeight) * expandedProgress;
+        float currentPadding = expandedPadding + (collapsedPadding - expandedPadding) * collapsedProgress;
+        float currentImageSize = collapsedImageSize + (expandedImageSize - collapsedImageSize) * expandedProgress;
+        float currentTextSize = collapsedTextSize + (expandedTextSize - collapsedTextSize) * expandedProgress;
 
         setContainerOffset(translation);
         setContainerHeight((int) currHeight);
