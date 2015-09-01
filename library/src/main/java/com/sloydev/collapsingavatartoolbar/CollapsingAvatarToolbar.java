@@ -35,6 +35,8 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
     private float expandedHeight;
     private float maxOffset;
 
+    private CollapseChangedListener collapseChangedListener;
+
     public CollapsingAvatarToolbar(Context context) {
         this(context, null);
         init();
@@ -78,6 +80,10 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
         if (expandedTextSize < 0) {
             expandedTextSize = resources.getDimension(R.dimen.default_expanded_text_size);
         }
+    }
+
+    public void setCollapseChangedListener(CollapseChangedListener collapseChangedListener) {
+        this.collapseChangedListener = collapseChangedListener;
     }
 
     private void init() {
@@ -156,6 +162,7 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
         }
         float collapsedProgress = -offset / maxOffset;
         updateViews(collapsedProgress, offset);
+        notifyListener(collapsedProgress);
     }
 
     private void calculateValues() {
@@ -199,5 +206,16 @@ public class CollapsingAvatarToolbar extends LinearLayout implements AppBarLayou
     private void setAvatarSize(int currentImageSize) {
         avatarView.getLayoutParams().height = currentImageSize;
         avatarView.getLayoutParams().width = currentImageSize;
+    }
+
+    private void notifyListener(float collapsedProgress) {
+        if (collapseChangedListener != null) {
+            collapseChangedListener.onCollapseChanged(collapsedProgress);
+        }
+    }
+
+    public interface CollapseChangedListener {
+
+        void onCollapseChanged(float collapsedProgress);
     }
 }
